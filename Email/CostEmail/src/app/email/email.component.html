@@ -1,0 +1,41 @@
+<style>
+    .highlighted {
+  background-color: rgb(225, 255, 0);
+}
+</style>
+
+
+<div class="container">
+    <div class="row">
+      <!-- Colonna a sinistra -->
+      <div class="col-sm-4 offset-sm-1" >
+        <h4 style="border: 1px solid black;">E-mail in arrivo:</h4>
+        <div *ngFor="let email of emails; let i = index" style="border: 1px solid black;">
+            <label [class.highlighted]="email.highlighted" style="width: 100%; border-top: none; border-left: none; border-right: none; border-radius: 0; border-bottom: 2px solid #ced4da; display: block; margin-top: 20px;">Da: {{ email.mit }}</label>
+            <label [class.highlighted]="email.highlighted" style="width: 100%; border-top: none; border-left: none; border-right: none; border-radius: 0; border-bottom: 2px solid #ced4da; display: block; margin-top: 20px;">A: {{ email.des }}</label>
+            <button type="button" class="btn btn-primary" (click)="toggleHighlight(i)">Evidenzia</button>
+          <button type="button" class="btn btn-secondary"(click)="riempiLabels(i)">Dettagli</button>
+        </div>
+      </div>
+      <!-- Colonna a destra -->
+      <div class="col-sm-5">
+        <div style="box-shadow: -10px 10px 10px rgba(0,0,0,0.711); border-color: white; border-radius: 15px; margin-top: 25px;">
+          <form>
+            <div style="width: 100%; margin-bottom: 30px;">
+              <label style="width: 100%; border-top: none; border-left: none; border-right: none; border-radius: 0; border-bottom: 2px solid #ced4da; display: block; margin-top: 20px;">Da: {{ selectedEmail?.mit }}</label>
+            </div>
+            <div style="width: 100%; margin-bottom: 30px;">
+              <label style="width: 100%; border-top: none; border-left: none; border-right: none; border-radius: 0; border-bottom: 2px solid #ced4da; display: block;">A: {{ selectedEmail?.des }}</label>
+            </div>
+            <div style="width: 100%; margin-bottom: 30px;">
+              <label style="width: 100%; border-top: none; border-left: none; border-right: none; border-radius: 0; border-bottom: 2px solid #ced4da; display: block;">Oggetto: {{ selectedEmail?.ogg }}</label>
+            </div>
+            <div style="height: 250px;">
+              <label style="width: 100%; max-height: 210px; height: 190px; border: 2px solid #ced4da; display: block;">Testo: {{ selectedEmail?.txt }}</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

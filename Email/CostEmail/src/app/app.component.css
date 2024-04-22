@@ -1,0 +1,7 @@
+.input-border {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    border-bottom: 1px solid #000000;
+  }
